@@ -17,7 +17,13 @@ console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 *******************************************************************************/
 
 function myMap(array, cb) {
-    // Your code here
+    let returnarr=[];
+    for (let i=0; i<array.length;i++){
+        let el=array[i];
+       let newel= cb(el);
+       returnarr.push(newel);
+    }
+    return returnarr;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
