@@ -20,7 +20,15 @@ console.log(result2);      // ['choose', 'words', 'only']
 *******************************************************************************/
 
 function myFilter(array, cb) {
-    // Your code here
+    let returnarr=[];
+  for (let i=0; i<array.length;i++){
+    let newel = array[i];
+    let newval=cb(newel);
+    if (newval){
+        returnarr.push(newel);
+    }
+  }
+  return returnarr;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
