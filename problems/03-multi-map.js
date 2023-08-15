@@ -22,7 +22,6 @@ console.log(result3); // hi!!!!!
 *******************************************************************************/
 
 function multiMap(val, n, cb) {
-
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
