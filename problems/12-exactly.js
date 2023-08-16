@@ -5,46 +5,59 @@ exactly `number` elements of the array that return true when passed into the cal
 
 Examples:
 
-let result1 = exactly([18, 5, 32, 7, 100], 3, function (n) {
-    return n % 2 === 0;
-});
-console.log(result1); // true
-
-let result2 = exactly([18, 5, 32, 7, 100], 2, function (n) {
-    return n % 2 === 0;
-});
-console.log(result2); // false
-
-let result3 = exactly(['follow', 'the', 'yellow', 'brick', 'road'], 1, function (str) {
-    return str.includes('x');
-});
-console.log(result3); // false
-
-let result4 = exactly(['follow', 'the', 'yellow', 'brick', 'road'], 0, function (str) {
-    return str.includes('x');
-});
-console.log(result4); // true
 
 *******************************************************************************/
 
-function exactly(array, num, cb) {
-  let counter=0
-  for (let i=0; i< array.length; i++){
-    let el=array[i];
-    let val=cb(el);
-    console.log(counter);
-    if (val === true){
-      counter ++
-    }
-  }
-  if (counter === num){
-    return true;
-  }
-  return false;
-}
+// function exactly(array, num, cb) {
+  //   let counter=0
+  //   for (let i=0; i< array.length; i++){
+    //     let el=array[i];
+    //     let val=cb(el);
+    //     console.log(counter);
+    //     if (val === true){
+      //       counter ++
+      //     }
+      //   }
+      //   if (counter === num){
+        //     return true;
+        //   }
+        //   return false;
+        // }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
-try {
+        function exactly(array, num, cb) {
+          let result = array.reduce((counter, curr, i) => {
+            let val= cb(curr);
+            if (val){
+              counter += 1
+            }
+            console.log(counter, curr, i);
+            return counter;
+          }, 0)
+          // console.log(result, "line 36");
+          return result === num;
+        }
+
+        let result1 = exactly([18, 5, 32, 7, 100], 3, function (n) {
+            return n % 2 === 0;
+        });
+        console.log(result1); // true
+
+        // let result2 = exactly([18, 5, 32, 7, 100], 2, function (n) {
+        //     return n % 2 === 0;
+        // });
+        // console.log(result2); // false
+
+        // let result3 = exactly(['follow', 'the', 'yellow', 'brick', 'road'], 1, function (str) {
+        //     return str.includes('x');
+        // });
+        // console.log(result3); // false
+
+        // let result4 = exactly(['follow', 'the', 'yellow', 'brick', 'road'], 0, function (str) {
+        //     return str.includes('x');
+        // });
+        // console.log(result4); // true
+        /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+        try {
   module.exports = exactly;
 } catch(e) {
   return null;
